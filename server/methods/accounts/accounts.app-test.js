@@ -454,8 +454,8 @@ describe("Account Meteor method ", function () {
     });
 
     it("should throw an error if address does not exist to remove", function () {
-      sandbox.stub(Meteor, "userId", () => fakeUser.userId);
-      expect(() => Meteor.call("accounts/addressBookRemove", "asdasdasd")).to.throw(Meteor.Error, /Unable to remove address from account/);
+      expect(() => Meteor.call("accounts/addressBookRemove", "asdasdasd"))
+        .to.throw(Meteor.Error, /Unable to remove address from account/);
     });
   });
 
